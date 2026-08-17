@@ -1,0 +1,26 @@
+# Build output - gets rebuilt inside the image, no need to copy it in
+target/
+
+# Git and IDE metadata - irrelevant to the running app
+.git/
+.gitignore
+.gitattributes
+.idea/
+*.iml
+.vscode/
+
+# The Dockerfile build itself doesn't need the Maven wrapper (the build
+# stage brings its own Maven), so no reason to ship it into the image
+mvnw
+mvnw.cmd
+.mvn/
+
+# Docs
+HELP.md
+*.md
+
+# Secrets / local env files - never bake these into an image
+.env
+.env.*
+*.pem
+*.key
