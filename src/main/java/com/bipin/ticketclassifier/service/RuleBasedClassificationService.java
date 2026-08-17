@@ -1,13 +1,11 @@
 package com.bipin.ticketclassifier.service;
 
 import com.bipin.ticketclassifier.dto.ClassifyResponse;
-import org.springframework.stereotype.Service;
 
-// Simple keyword-based implementation of ClassificationService.
-// To switch to an AI model later, create a new @Service class that
-// implements ClassificationService and remove the @Service here
-// (Spring will then wire in the new implementation automatically).
-@Service
+// Simple keyword-based implementation of ClassificationService. No longer
+// a Spring bean itself (no @Service) - AiClassificationService creates and
+// holds one of these directly, and uses it only as a fallback if the
+// Azure OpenAI call fails.
 public class RuleBasedClassificationService implements ClassificationService {
 
     private static final String[] BILLING_KEYWORDS =
